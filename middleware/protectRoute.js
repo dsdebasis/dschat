@@ -4,9 +4,9 @@ import { ApiError } from "../utils/ApiError.js";
 import {AsyncHandler} from "../utils/AsyncHandler.js";
 const protectRoute = AsyncHandler(async (req, res, next) => {
 
-	console.log(req.cookies.jwt)
+	// console.log(req.cookies.jwt)
 	try {
-		
+		const token = req.cookies.jwt;
 
 		if (!token) {
 			throw new ApiError(400,"Unauthorized - No Token Provided")

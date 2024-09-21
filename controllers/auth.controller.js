@@ -71,10 +71,11 @@ export const login = AsyncHandler(async (req, res) => {
       user?.password || ""
     );
 
-    if (!user || !isPasswordCorrect) {
-      throw new ApiError(400, "Invalid User name or Password");
+    if (!user ) {
+      throw new ApiError(400, "Invalid User name ");
     }
-
+    
+    if(!isPasswordCorrect) throw new ApiError(400, "Invalid password");
     generateTokenAndSetCookie(user._id, res);
 
     return res.status(200).json(
