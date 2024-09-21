@@ -3,6 +3,7 @@ import {ApiResponse} from "../utils/ApiResponse.js"
 import {ApiError} from "../utils/ApiError.js"
 import { AsyncHandler } from "../utils/AsyncHandler.js";
 export const getUsersForSidebar = AsyncHandler(async (req, res) => {
+	 console.log(req.user)
 	try {
 		const loggedInUserId = req.user._id;
 
